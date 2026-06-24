@@ -1,0 +1,90 @@
+{
+  "updatedAt": "2026-06-24T05:36:56.116Z",
+  "createdAt": "2026-06-24T05:23:19.745Z",
+  "id": "vVe3yVZR3aqfPecU",
+  "name": "My workflow 2",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "27cd4e90-b9b7-4a6e-aa04-b2c04d3deb79",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "gonzacordobani1889-ui",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "etnade-wiki",
+          "mode": "name"
+        },
+        "filePath": "hola-mundo.txt",
+        "fileContent": "¡Hola! Este archivo fue creado automáticamente desde n8n.",
+        "commitMessage": "Mi primer archivo automático"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "a4eec8f9-74ec-48ca-a9ff-09f4a745ed02",
+      "name": "Create a file",
+      "webhookId": "8c442331-e622-47f2-9273-51007861e27e",
+      "credentials": {
+        "githubApi": {
+          "id": "wgiND0EcXEXjvUdy",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "a12c1ef8-14ad-4f48-8f3f-603c8f0070b2",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-06-24T05:23:19.745Z",
+      "createdAt": "2026-06-24T05:23:19.745Z",
+      "role": "workflow:owner",
+      "workflowId": "vVe3yVZR3aqfPecU",
+      "projectId": "N4ozfraWX7xXqP26"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
