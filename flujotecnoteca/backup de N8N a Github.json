@@ -1,0 +1,168 @@
+{
+  "updatedAt": "2026-06-24T05:53:22.048Z",
+  "createdAt": "2026-06-24T05:04:21.750Z",
+  "id": "TdeZikuy5Ut5jHB3",
+  "name": "backup de N8N a Github",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -32
+      ],
+      "id": "d797e3e3-6a65-41a2-8988-9cb3c2639a83",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "Najle-Bruno",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Workflow-n8n-tecnoteca",
+          "mode": "name"
+        },
+        "filePath": "=flujotecnoteca/{{ $json.name }}.json",
+        "fileContent": "={{ JSON.stringify ($json, null, 2) }}",
+        "commitMessage": "Backup de flujos "
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        80
+      ],
+      "id": "ad3da45e-9eae-47fd-9ffc-10ca3c15b340",
+      "name": "Edit a file",
+      "webhookId": "c04f50e1-ad19-469d-b953-1911d3e76f03",
+      "credentials": {
+        "githubApi": {
+          "id": "wgiND0EcXEXjvUdy",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "gonzacordobani1889-ui",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Workflow-n8n-tecnoteca",
+          "mode": "name"
+        },
+        "filePath": "=flujotecnoteca/{{ $json.name }}.json",
+        "fileContent": "={{ JSON.stringify ($json, null, 2) }}",
+        "commitMessage": "Backup de flujos "
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        144,
+        -32
+      ],
+      "id": "b4723566-f683-40d2-a92a-af3e09d5c639",
+      "name": "Create a file",
+      "webhookId": "c04f50e1-ad19-469d-b953-1911d3e76f03",
+      "credentials": {
+        "githubApi": {
+          "id": "wgiND0EcXEXjvUdy",
+          "name": "GitHub account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -32
+      ],
+      "id": "92dc30c7-5ac7-48bc-bcc1-87f6220a634f",
+      "name": "Get many workflows",
+      "credentials": {
+        "n8nApi": {
+          "id": "XA3UaqXs8W8vkCvB",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a file": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many workflows": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "05c18491-2f86-419b-b7d5-c8b37aabf7eb",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-06-24T05:04:21.750Z",
+      "createdAt": "2026-06-24T05:04:21.750Z",
+      "role": "workflow:owner",
+      "workflowId": "TdeZikuy5Ut5jHB3",
+      "projectId": "N4ozfraWX7xXqP26"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
